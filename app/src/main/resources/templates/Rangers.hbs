@@ -1,3 +1,22 @@
 {{#partial "styles"}}
-    <link rel='stylesheet' href='/Style.css' type="text/css">
+    <link rel='stylesheet' href='/css/Style.css' type="text/css">
 {{/partial}}
+{{#partial "header"}}
+    <h2>WELCOME TO RANGERS HUB</h2>
+{{/partial}}
+{{#partial "content"}}
+    <div class="container">
+        <img src="/images/animal2.jpeg">
+        <br>
+        <h4>HERE IS A LIST OF RANGERS</h4>
+    </div>
+    <div class="container">
+        {{#each Ranger }}
+            <label for="ranger_name">Ranger Name</label><span><p>{{ ranger_name }}</p></span>
+            <label for="Gender">Gender</label><span><p>{{ Gender }}</p></span>
+            <label for="Age">Age</label><span><p>{{ Age }}</p></span>
+        {{/each}}
+    </div>
+{{/partial}}
+
+{{> layout.hbs }}
