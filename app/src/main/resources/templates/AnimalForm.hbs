@@ -1,3 +1,37 @@
 {{#partial "styles"}}
     <link rel='stylesheet' href='/Style.css' type="text/css">
 {{/partial}}
+{{#partial "header"}}
+    <div class="container">
+        <h2>REPORT ANIMAL SPOTTED (SECURED)</h2>
+        <br>
+    </div>
+{{/partial}}
+{{#partial "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/images/animal3.jpeg">
+            </div>
+            <div class="col-md-6">
+                <div class="form-name">
+                    <h3>FILL FORM BELOW POST ALERT</h3>
+                    <br>
+                </div>
+                <form action="/Animal" method="post">
+                    <div class="form-group">
+                        <label for="species_name">Species Name</label>
+                        <input name="species_name" placeholder="Enter species spotted" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Spotted At</label>
+                        <input name="Spotted_At" placeholder="Enter current location of animal" class="form-control" type="text">
+                    </div>
+                    <button type="submit" class="btn btn-danger">POST ALERT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
