@@ -1,3 +1,32 @@
 {{#partial "styles"}}
-    <link rel='stylesheet' href='/Style.css' type="text/css">
+    <link rel='stylesheet' href='/css/Style.css' type="text/css">
 {{/partial}}
+{{#partial "header"}}
+    <div class="container">
+        <h2>RANGERS ARE THE SUPERHEROES IN OUR FORESTS</h2>
+        <br>
+    </div>
+{{/partial}}
+{{#partial "content"}}
+    <p>JOIN THE RANGERS BY FILLING THE FORM BELOW;</p>
+    <form action="/Rangers" method="post">
+        <div class="form-group">
+            <label for="Ranger Name">Ranger Name</label>
+            <input type="text" name="ranger_name" placeholder="Write your name here">
+        </div>
+        <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select name="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Age">Age</label>
+            <input type="number" name="Age" placeholder="Enter your Age">
+        </div>
+        <button type="submit" class="btn btn-danger">POST RANGER</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}
