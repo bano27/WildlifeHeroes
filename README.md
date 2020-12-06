@@ -1,4 +1,4 @@
-#WildlifeHeroes
+# WildlifeHeroes
 
 WildlifeHeroes is an app that allows tourists and rangers to call in an alert when they encounter a wild animal mostly those listed as endangered. Users will be able to communicate where the animal was spotted and give more details as accounted to by the application. 
 

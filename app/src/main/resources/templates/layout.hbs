@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <div class="container col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">WILDLIFEHEROES</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <div class="mr-auto"></div>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">WILDLIFEHEROES <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Animal">AnimalHub</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AnimalForm">Report Animal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/EndangeredAnimalForm">Report Endangered Animal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/RangerForm">SignUp as Ranger</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        {{#block "header"}}
+            <div class="container">
+            <h1>WELCOME TO WILDLIFEHEROES (Online Wildlife Sanctuary)</h1>
+            <br>
+            <p><a href="/Animal">Checkout Animals Spotted</a> </p>
+            <p><a href="/Rangers">Rangers Sign Up HERE</a> </p>
+            </div>
+        {{/block}}
+        <title>{{#block "title"}}WILDLIFEHEROES{{/block}}</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='Style.css' type="text/css">
+        {{#block "styles"}}{{/block}}
+    </head>
+<body>
+<div class="container">
+    {{#block "content"}}
+        <div class="container">
+            <p><img src="/images/animal1.jpg"></p>
+        </div>
+    {{/block}}
+</div>
+</body>
+<footer>
+    {{#block "footer"}}{{/block}}
+</footer>
+</html>

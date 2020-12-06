@@ -3,12 +3,40 @@
  */
 package WildlifeHeroes;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static spark.Spark.*;
+
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        staticFileLocation("/public");
+        get("/", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(new HashMap(), "layout.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/Animal", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(new HashMap(), "Animal.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/Rangers", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(new HashMap(), "Rangers.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/AnimalForm", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(new HashMap(), "AnimalForm.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/EndangeredAnimalForm", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(new HashMap(), "EndangeredAnimalForm.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/RangerForm", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(new HashMap(), "RangerForm.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
