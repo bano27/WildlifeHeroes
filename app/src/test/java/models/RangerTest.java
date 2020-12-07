@@ -8,7 +8,7 @@ public class RangerTest {
     @Test
     public void testGetsNameOfRangerInstance(){
         Ranger newRanger = Ranger.newRangerPost();
-        assertEquals("dog", newRanger.getSpeciesName());
+        assertEquals("dog", newRanger.getRangersName());
     }
 
     @Test public void testGetsGenderOfRangerInstance(){
@@ -21,7 +21,7 @@ public class RangerTest {
         assertEquals( 1, newRanger.getAge());
     }
 
-    @Test public void testGetsAgeOfRangerInstance(){
+    @Test public void testGetsIdOfRangerInstance(){
         Ranger newRanger = Ranger.newRangerPost();
         assertEquals( 1, newRanger.getId());
     }
