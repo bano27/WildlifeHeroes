@@ -69,5 +69,25 @@ public class App {
 
             return new ModelAndView(model, "Rangers.hbs");
         }, new HandlebarsTemplateEngine());
+        post("/Animal", (request, respones) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String endangeredSpeciesName = request.queryParams("species_name");
+            request.session().attribute("species_name", endangeredSpeciesName);
+            model.put("species_name", endangeredSpeciesName);
+            String endangeredLocation = request.queryParams("Spotted_At");
+            request.session().attribute("Spotted_At", endangeredLocation);
+            model.put("Spotted_At", endangeredLocation);
+            String endangeredAge = request.queryParams("Age");
+            request.session().attribute("Age", endangeredAge);
+            model.put("Age", endangeredAge);
+            String endangeredHealth = request.queryParams("Health");
+            request.session().attribute("Health", endangeredHealth);
+            model.put("Health", endangeredHealth);
+            EndangeredSpecies endangeredSpecies = new EndangeredSpecies(endangeredSpeciesName, endangeredLocation, endangeredHealth, endangeredAge);
+            endangeredSpecies.save();
+            model.put("EndangeredSpecies", EndangeredSpecies.all());
+
+            return new ModelAndView(model, "Animal.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
