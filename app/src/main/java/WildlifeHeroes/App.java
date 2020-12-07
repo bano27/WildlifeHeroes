@@ -38,5 +38,16 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(new HashMap(), "RangerForm.hbs");
         }, new HandlebarsTemplateEngine());
+        post("/Animal", (request, respones) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String speciesName = request.queryParams("species_name");
+            request.session().attribute("species_name", speciesName);
+            model.put("species_name", speciesName);
+            String location = request.queryParams("Spotted_At");
+            request.session().attribute("Spotted_At", location);
+            model.put("Spotted_At", location);
+
+            return new ModelAndView(model, Animal.hbs);
+        }, new HandlebarsTemplateEngine());
     }
 }
