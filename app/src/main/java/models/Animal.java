@@ -17,4 +17,19 @@ public class Animal implements AnimalInterface {
         this.id = instances.size();
     }
 
+    public String getSpeciesName() {
+        return speciesName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static List<Animal> getInstances() {
+        return instances;
+    }
 }
