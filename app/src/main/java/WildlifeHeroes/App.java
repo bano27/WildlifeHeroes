@@ -46,8 +46,28 @@ public class App {
             String location = request.queryParams("Spotted_At");
             request.session().attribute("Spotted_At", location);
             model.put("Spotted_At", location);
+            Animal animal = new Animal(speciesName, location);
+            animal.save();
+            model.put("Animal", Animal.all());
 
-            return new ModelAndView(model, Animal.hbs);
+            return new ModelAndView(model, "Animal.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("/Rangers", (request, respones) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String rangersName = request.queryParams("ranger_name");
+            request.session().attribute("ranger_name", rangersName);
+            model.put("ranger_name", rangersName);
+            String gender = request.queryParams("Gender");
+            request.session().attribute("Gender", gender);
+            model.put("Gender", gender);
+            int age = Integer.parseInt(request.queryParams("Age"));
+            request.session().attribute("Age", age);
+            model.put("Age", age);
+            Ranger ranger = new Ranger(rangersName, gender, age);
+            ranger.save();
+            model.put("Rangers", Ranger.all());
+
+            return new ModelAndView(model, "Rangers.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
