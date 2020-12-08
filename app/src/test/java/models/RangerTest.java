@@ -8,21 +8,26 @@ public class RangerTest {
     @Test
     public void testGetsNameOfRangerInstance(){
         Ranger newRanger = Ranger.newRangerPost();
-        assertEquals("dog", newRanger.getRangersName());
+        assertEquals("Ernest", newRanger.getRangersName());
     }
 
     @Test public void testGetsGenderOfRangerInstance(){
         Ranger newRanger = Ranger.newRangerPost();
-        assertEquals("Shoreline", newRanger.getGender());
+        assertEquals("Male", newRanger.getGender());
     }
 
     @Test public void testGetsAgeOfRangerInstance(){
         Ranger newRanger = Ranger.newRangerPost();
-        assertEquals( 1, newRanger.getAge());
+        assertEquals( 33, newRanger.getAge());
     }
 
     @Test public void testGetsIdOfRangerInstance(){
         Ranger newRanger = Ranger.newRangerPost();
         assertEquals( 1, newRanger.getId());
+    }
+
+    @Test public void testGetsInstancesOfNewRanger(){
+        Ranger newRanger = Ranger.newRangerPost();
+        assertTrue(Ranger.getInstances().contains(newRanger));
     }
 }

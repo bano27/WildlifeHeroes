@@ -10,11 +10,12 @@ public class Ranger {
     private int id;
     private static List<Ranger> instances = new ArrayList<>();
 
-    public Animal(String rangersName, String gender, Integer age, Integer id){
+    public Ranger(String rangersName, String gender, Integer age){
         this.rangersName = rangersName;
         this.gender = gender;
         this.age = age;
         this.id = instances.size();
+        instances.add(this);
     }
 
     public String getRangersName() {
@@ -35,5 +36,9 @@ public class Ranger {
 
     public static List<Ranger> getInstances() {
         return instances;
+    }
+
+    public static Ranger newRangerPost(){
+        return new Ranger("Ernest", "Male", 33);
     }
 }

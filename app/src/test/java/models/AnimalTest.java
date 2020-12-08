@@ -19,4 +19,9 @@ public class AnimalTest {
         Animal newAnimal = Animal.newSecuredAnimal();
         assertEquals( 1, newAnimal.getId());
     }
+
+    @Test public void testGetsInstancesOfNewAnimal(){
+        Animal newAnimal = Animal.newSecuredAnimal();
+        assertTrue(Animal.getInstances().contains(newAnimal));
+    }
 }

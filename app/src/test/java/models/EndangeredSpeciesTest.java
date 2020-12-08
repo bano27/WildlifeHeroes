@@ -8,26 +8,31 @@ public class EndangeredSpeciesTest {
     @Test
     public void testGetsNameOfEndangeredSpeciesInstance(){
         EndangeredSpecies newEndangeredSpecies = EndangeredSpecies.newEndangeredPost();
-        assertEquals("dog", newEndangeredSpecies.getEndangeredSpeciesName());
+        assertEquals("Bear", newEndangeredSpecies.getEndangeredSpeciesName());
     }
 
     @Test public void testGetsLocationOfEndangeredSpeciesInstance(){
         EndangeredSpecies newEndangeredSpecies = EndangeredSpecies.newEndangeredPost();
-        assertEquals("Shoreline", newEndangeredSpecies.getEndangeredLocation());
+        assertEquals("Forest", newEndangeredSpecies.getEndangeredLocation());
     }
 
     @Test public void testGetsHealthOfEndangeredSpeciesInstance(){
         EndangeredSpecies newEndangeredSpecies = EndangeredSpecies.newEndangeredPost();
-        assertEquals( 1, newEndangeredSpecies.getEndangeredHealth());
+        assertEquals( "okay", newEndangeredSpecies.getEndangeredHealth());
     }
 
     @Test public void testGetsAgeOfEndangeredSpeciesInstance(){
         EndangeredSpecies newEndangeredSpecies = EndangeredSpecies.newEndangeredPost();
-        assertEquals( 1, newEndangeredSpecies.getEndangeredAge());
+        assertEquals( "young", newEndangeredSpecies.getEndangeredAge());
     }
 
     @Test public void testGetsIdOfEndangeredSpeciesInstance(){
         EndangeredSpecies newEndangeredSpecies = EndangeredSpecies.newEndangeredPost();
         assertEquals( 1, newEndangeredSpecies.getId());
+    }
+
+    @Test public void testGetsInstancesOfNewRanger(){
+        EndangeredSpecies newEndangeredSpecies = EndangeredSpecies.newEndangeredPost();
+        assertTrue(EndangeredSpecies.getInstances().contains(newEndangeredSpecies));
     }
 }

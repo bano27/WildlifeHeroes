@@ -3,6 +3,9 @@
  */
 package WildlifeHeroes;
 
+import models.Animal;
+import models.EndangeredSpecies;
+import models.Ranger;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -47,8 +50,7 @@ public class App {
             request.session().attribute("Spotted_At", location);
             model.put("Spotted_At", location);
             Animal animal = new Animal(speciesName, location);
-            animal.save();
-            model.put("Animal", Animal.all());
+            model.put("Animal", Animal.getInstances());
 
             return new ModelAndView(model, "Animal.hbs");
         }, new HandlebarsTemplateEngine());
@@ -64,8 +66,7 @@ public class App {
             request.session().attribute("Age", age);
             model.put("Age", age);
             Ranger ranger = new Ranger(rangersName, gender, age);
-            ranger.save();
-            model.put("Rangers", Ranger.all());
+            model.put("Rangers", Ranger.getInstances());
 
             return new ModelAndView(model, "Rangers.hbs");
         }, new HandlebarsTemplateEngine());
@@ -83,9 +84,8 @@ public class App {
             String endangeredHealth = request.queryParams("Health");
             request.session().attribute("Health", endangeredHealth);
             model.put("Health", endangeredHealth);
-            EndangeredSpecies endangeredSpecies = new EndangeredSpecies(endangeredSpeciesName, endangeredLocation, endangeredHealth, endangeredAge);
-            endangeredSpecies.save();
-            model.put("EndangeredSpecies", EndangeredSpecies.all());
+            EndangeredSpecies endangeredSpecies = new EndangeredSpecies(endangeredSpeciesName, endangeredLocation, endangeredAge, endangeredHealth);
+            model.put("EndangeredSpecies", EndangeredSpecies.getInstances());
 
             return new ModelAndView(model, "Animal.hbs");
         }, new HandlebarsTemplateEngine());

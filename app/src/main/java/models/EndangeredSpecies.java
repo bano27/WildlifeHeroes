@@ -11,12 +11,13 @@ public class EndangeredSpecies {
     private int id;
     private static List<EndangeredSpecies> instances = new ArrayList<>();
 
-    public Animal(String endangeredSpeciesName, String endangeredLocation, String endangeredAge, String endangeredHealth, Integer id){
+    public EndangeredSpecies(String endangeredSpeciesName, String endangeredLocation, String endangeredAge, String endangeredHealth){
         this.endangeredSpeciesName = endangeredSpeciesName;
         this.endangeredLocation = endangeredLocation;
         this.endangeredAge = endangeredAge;
         this.endangeredHealth = endangeredHealth;
         this.id = instances.size();
+        instances.add(this);
     }
 
     public String getEndangeredSpeciesName() {
@@ -41,5 +42,9 @@ public class EndangeredSpecies {
 
     public static List<EndangeredSpecies> getInstances() {
         return instances;
+    }
+
+    public static EndangeredSpecies newEndangeredPost(){
+        return new EndangeredSpecies("Bear", "Forest", "young", "okay");
     }
 }
