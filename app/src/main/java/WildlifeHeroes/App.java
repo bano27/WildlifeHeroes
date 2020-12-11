@@ -43,14 +43,14 @@ public class App {
         }, new HandlebarsTemplateEngine());
         post("/Animal", (request, respones) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            String speciesName = request.queryParams("species_name");
-            request.session().attribute("species_name", speciesName);
-            model.put("species_name", speciesName);
-            String location = request.queryParams("Spotted_At");
+            String speciesName = request.queryParams("speciesName");
+            request.session().attribute("speciesName", speciesName);
+            model.put("speciesName", speciesName);
+            String location = request.queryParams("spottedAt");
             request.session().attribute("Spotted_At", location);
-            model.put("Spotted_At", location);
+            model.put("spottedAt", location);
             Animal animal = new Animal(speciesName, location);
-            model.put("Animal", Animal.getInstances());
+            model.put("Animal", animal.all());
 
             return new ModelAndView(model, "Animal.hbs");
         }, new HandlebarsTemplateEngine());
@@ -66,7 +66,7 @@ public class App {
             request.session().attribute("Age", age);
             model.put("Age", age);
             Ranger ranger = new Ranger(rangersName, gender, age);
-            model.put("Rangers", Ranger.getInstances());
+            model.put("Rangers", ranger.getInstances());
 
             return new ModelAndView(model, "Rangers.hbs");
         }, new HandlebarsTemplateEngine());
@@ -85,7 +85,7 @@ public class App {
             request.session().attribute("Health", endangeredHealth);
             model.put("Health", endangeredHealth);
             EndangeredSpecies endangeredSpecies = new EndangeredSpecies(endangeredSpeciesName, endangeredLocation, endangeredAge, endangeredHealth);
-            model.put("EndangeredSpecies", EndangeredSpecies.getInstances());
+            model.put("EndangeredSpecies", endangeredSpecies.getInstances());
 
             return new ModelAndView(model, "Animal.hbs");
         }, new HandlebarsTemplateEngine());
