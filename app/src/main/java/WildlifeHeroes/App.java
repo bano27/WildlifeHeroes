@@ -56,9 +56,9 @@ public class App {
         }, new HandlebarsTemplateEngine());
         post("/Rangers", (request, respones) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            String rangersName = request.queryParams("ranger_name");
-            request.session().attribute("ranger_name", rangersName);
-            model.put("ranger_name", rangersName);
+            String rangersName = request.queryParams("rangerName");
+            request.session().attribute("rangerName", rangersName);
+            model.put("rangerName", rangersName);
             String gender = request.queryParams("Gender");
             request.session().attribute("Gender", gender);
             model.put("Gender", gender);
